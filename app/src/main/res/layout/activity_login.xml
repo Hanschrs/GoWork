@@ -26,7 +26,7 @@
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="0dp"
-            android:layout_height="35dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="50dp"
             android:layout_weight="0.19"
             app:srcCompat="@drawable/ic_action_username" />
@@ -54,7 +54,7 @@
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="0dp"
-            android:layout_height="35dp"
+            android:layout_height="match_parent"
             android:layout_alignTop="@+id/inputPassword"
             android:layout_marginLeft="50dp"
             android:layout_toStartOf="@+id/inputPassword"

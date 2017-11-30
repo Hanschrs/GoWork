@@ -7,47 +7,48 @@
     tools:context="com.steventanjung.gowork.TambahNota">
 
     <EditText
-        android:id="@+id/nama"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Nama Barang"
-        android:inputType="textPersonName"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:id="@+id/jumlah"
+        android:id="@+id/namabarang_nota"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/nama"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:hint="Nama Barang"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/jumlah_nota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/namabarang_nota"
         android:ems="10"
         android:hint="Jumlah Barang"
         android:inputType="number" />
 
 
     <Button
-        android:id="@+id/tambahBtn"
+        android:id="@+id/tambahBtn_nota"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/jumlah"
+        android:layout_below="@+id/jumlah_nota"
         android:text="Tambah Barang" />
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/doneButton"
-        android:layout_alignParentStart="true" />
-
     <Button
-        android:id="@+id/doneButton"
+        android:id="@+id/doneButton_nota"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/tambahBtn"
+        android:layout_below="@+id/tambahBtn_nota"
+        android:elevation="0dp"
         android:text="Done" />
+
+    <ListView
+        android:id="@+id/listView_nota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/doneButton_nota"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.steventanjung.gowork;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +23,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,52 +54,11 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
-
-//        login_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (username_field.getText().toString().equals("admin") && password_field.getText().toString().equals("admin")){
-//                    Intent secondIntent
-//                            = new Intent(Login.this,MenuActivity.class);
-//                    startActivity(secondIntent);
-//                }else{
-//                    Intent secondIntent
-//                            = new Intent(Login.this,Login.class);
-//                    startActivity(secondIntent);
-//                }
-//            }
-//        });
     }
 
     public void loginProcess() {
 //        String url = "http://10.200.203.223/uasandroid/login.php";
         String url = "https://www.hanschrs.com/android/uas/login.php";
-
-//        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                Toast.makeText(Login.this, "login success", Toast.LENGTH_SHORT).show();
-//                Intent secondIntent = new Intent(Login.this, MenuActivity.class);
-//                startActivity(secondIntent);
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Toast.makeText(Login.this, "Database connection not established", Toast.LENGTH_SHORT).show();
-//                Log.e("error", error.toString());
-//            }
-//        }) {
-//            @Override
-//            public Map<String, String> getHeaders() throws AuthFailureError {
-//                Map<String, String> params = new HashMap<>();
-//                params.put("username", username_field.getText().toString());
-//                params.put("password", password_field.getText().toString());
-//                return super.getHeaders();
-//            }
-//        };
-//
-//        RequestQueue queue = Volley.newRequestQueue(Login.this);
-//        queue.add(stringRequest);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
@@ -108,10 +71,21 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, message, Toast.LENGTH_SHORT).show();
                             if (statusCode == 1) {
                                 Toast.makeText(Login.this, "login success", Toast.LENGTH_SHORT).show();
+
+                                String FILENAME = "loggedin_user";
+                                String string = "biji";
+                                FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+                                fos.write(string.getBytes());
+                                fos.close();
+
                                 Intent secondIntent = new Intent(Login.this, MenuActivity.class);
                                 startActivity(secondIntent);
                             }
                         } catch (JSONException e) {
+                            e.printStackTrace();
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }

@@ -20,12 +20,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AddUser" />
         <activity android:name=".BarangActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".MenuPegawaiActivity" />
         <activity android:name=".LihatBarangActivity" />
         <activity android:name=".TambahNota" />
-        <activity android:name=".LihatNotaActivity"></activity>
+        <activity android:name=".LihatNotaActivity" />
+        <activity android:name=".home"></activity>
     </application>
 
 </manifest>

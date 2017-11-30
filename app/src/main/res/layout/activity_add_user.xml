@@ -7,19 +7,16 @@
     android:orientation="vertical"
     tools:context="com.steventanjung.gowork.BarangActivity">
 
-
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/imageView5"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_above="@+id/namabarang_nota"
-        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="100dp"
-        app:srcCompat="@drawable/ic_action_barang" />
+        app:srcCompat="@drawable/ic_action_user" />
 
     <EditText
-        android:id="@+id/namabarang_barang"
+        android:id="@+id/username_addUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/editText_nama"
@@ -27,39 +24,25 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Nama Barang"
+        android:hint="Username"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/harga_barang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/namabarang_nota"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="Harga Satuan"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/jumlah_barang"
+        android:id="@+id/editText_password_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Jumlah"
-        android:inputType="textPersonName" />
+        android:hint="Password"
+        android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/tambahBtn_barang"
+        android:id="@+id/button_tambah"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editText_nama"
-        android:layout_below="@+id/editText_nama"
         android:layout_gravity="center"
-        android:text="TAMBAH" />
+        android:text="Tambah" />
 
 </LinearLayout>

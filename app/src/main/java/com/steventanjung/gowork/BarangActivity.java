@@ -23,10 +23,12 @@ EditText nama,harga;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barang);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        nama=(EditText) findViewById(R.id.nama);
-        harga= (EditText) findViewById(R.id.harga);
-        add= (Button) findViewById(R.id.tambahBtn);
+
+        nama=(EditText) findViewById(R.id.namabarang_barang);
+        harga= (EditText) findViewById(R.id.harga_barang);
+        add= (Button) findViewById(R.id.tambahBtn_barang);
 
         add.setOnClickListener(new View.OnClickListener(){
 
