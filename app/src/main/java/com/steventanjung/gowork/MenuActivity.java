@@ -7,7 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -16,10 +20,11 @@ import java.io.PrintWriter;
 
 public class MenuActivity extends AppCompatActivity {
 
-    Button btn1, btn2, btn3, btn4, btn5,btnLogout;
+    Button btn1, btn2, btn3, btn4, btn5, btnLogout;
     TextView helloUser;
     boolean session;
     String sessionName;
+    boolean sessionAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +33,11 @@ public class MenuActivity extends AppCompatActivity {
 
 //        check session, if no session active then go remove from stack and revert back to login.
         helloUser = findViewById(R.id.hiUser);
-        checkSession();
+        try {
+            checkSession();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         if (session) {
             helloUser.setText("Hello, " + sessionName + " !");
         } else {
@@ -90,13 +99,15 @@ public class MenuActivity extends AppCompatActivity {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PrintWriter writer = null;
-                try {
-                    writer = new PrintWriter("loggedin_user");
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-                writer.close();
+//                PrintWriter writer = null;
+//                try {
+//                    writer = new PrintWriter("loggedin_user");
+//                } catch (FileNotFoundException e) {
+//                    e.printStackTrace();
+//                }
+//                writer.close();
+                File userfile = new File("loggedin_user");
+                userfile.delete();
                 finish();
             }
         });
@@ -109,18 +120,18 @@ public class MenuActivity extends AppCompatActivity {
         return true;
     }
 
-//    prevent going back to login page
+    //    prevent going back to login page
     @Override
     public void onBackPressed() {
         moveTaskToBack(true);
     }
 
-    public void checkSession() {
+    public void checkSession() throws JSONException {
         FileInputStream in = null;
         try {
             in = openFileInput("loggedin_user");
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            finish();
         }
         InputStreamReader inputStreamReader = new InputStreamReader(in);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -130,12 +141,18 @@ public class MenuActivity extends AppCompatActivity {
             while ((line = bufferedReader.readLine()) != null) {
                 sb.append(line);
                 session = true;
-                sessionName = line;
             }
         } catch (IOException e) {
             session = false;
             sessionName = "";
             e.printStackTrace();
+        }
+        JSONObject jObjUser = new JSONObject(String.valueOf(sb));
+        sessionName = jObjUser.getString("username");
+        if ((jObjUser.getString("pangkat")).equals("1")) {
+            sessionAdmin = true;
+        } else {
+            sessionAdmin = false;
         }
     }
 
