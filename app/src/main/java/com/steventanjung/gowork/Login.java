@@ -24,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -42,11 +43,13 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-//        checkSession();
+        checkSession();
         login_button = (Button) findViewById(R.id.buttonLogin);
         username_field = (EditText) findViewById((R.id.inputUsername));
         password_field = (EditText) findViewById(R.id.inputPassword);
         result_view = (TextView) findViewById(R.id.textviewResult);
+
+
 
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,9 +82,10 @@ public class Login extends AppCompatActivity {
                         fos.write(string.getBytes());
                         fos.close();
 
-                        Intent mainmenuIntent = new Intent(Login.this, MenuActivity.class);
+                        Intent mainmenuIntent = new Intent(Login.this, HomeActivity.class);
                         mainmenuIntent.putExtra("userDetails", jsonObject.toString());
                         startActivity(mainmenuIntent);
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -127,7 +131,7 @@ public class Login extends AppCompatActivity {
                 e.printStackTrace();
             }
             JSONObject jObjUser = new JSONObject(String.valueOf(sb));
-            Intent mainmenuIntent = new Intent(Login.this, MenuActivity.class);
+            Intent mainmenuIntent = new Intent(Login.this, HomeActivity.class);
             mainmenuIntent.putExtra("userDetails", jObjUser.toString());
             startActivity(mainmenuIntent);
         } catch (FileNotFoundException e) {

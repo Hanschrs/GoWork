@@ -10,7 +10,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class BarangActivity extends AppCompatActivity {
-EditText nama,harga;
+EditText nama,harga,jumlah;
     Button add;
     ListView listview;
 
@@ -28,6 +28,7 @@ EditText nama,harga;
 
         nama=(EditText) findViewById(R.id.namabarang_barang);
         harga= (EditText) findViewById(R.id.harga_barang);
+        jumlah =  (EditText) findViewById(R.id.jumlah_barang);
         add= (Button) findViewById(R.id.tambahBtn_barang);
 
         add.setOnClickListener(new View.OnClickListener(){
@@ -47,7 +48,8 @@ EditText nama,harga;
                 Barang barang = new Barang(
                         (nama.getText().toString().substring(0,2).toUpperCase() + kode),
                         nama.getText().toString(),
-                        "Rp. " + harga.getText().toString()
+                        "Rp. " + harga.getText().toString(),
+                        Integer.parseInt(jumlah.getText().toString())
                 );
                 array.add(barang);
                 adapter.notifyDataSetChanged();

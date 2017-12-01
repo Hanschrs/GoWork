@@ -9,7 +9,7 @@ import android.widget.EditText;
  * Created by Hans on 11/29/2017.
  */
 
-public class AddUser extends AppCompatActivity {
+public class AddUserActivity extends AppCompatActivity {
 
     Button btnAddUser;
     EditText username,password;
@@ -19,7 +19,7 @@ public class AddUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_user);
 
-        btnAddUser = (Button) findViewById(R.id.btn_tambahUser);
+//        btnAddUser = (Button) findViewById(R.id.btn_tambahUser);
         username = (EditText) findViewById(R.id.username_addUser);
         password = (EditText) findViewById(R.id.editText_password_user);
     }

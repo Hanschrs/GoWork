@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -18,29 +19,33 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
-public class MenuActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
-    Button btn1, btn2, btn3, btn4, btn5, btnLogout;
-    TextView helloUser;
+    //session
     boolean session;
     String sessionName;
     boolean sessionAdmin;
 
+    //layout stuff
+    TextView username_text, barang_text, nota_text, user_text;
+    ImageView barang_logo, nota_logo, user_logo;
+    Button logout_button;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_home);
 
-//        check session, if no session active then go remove from stack and revert back to login.
-        helloUser = findViewById(R.id.hiUser);
-
+        //check session, if no session active then go remove from stack and revert back to login.
+        username_text = findViewById(R.id.username_home);
         try {
             checkSession();
         } catch (JSONException e) {
             e.printStackTrace();
         }
         if (session) {
-            helloUser.setText("Hello, " + sessionName + " !");
+            username_text.setText(sessionName);
         } else {
             PrintWriter writer = null;
             try {
@@ -52,69 +57,81 @@ public class MenuActivity extends AppCompatActivity {
             finish();
         }
 
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        btn1 = (Button) findViewById(R.id.tambahBarang);
-        btn2 = (Button) findViewById(R.id.buttonList);
-        btn3 = (Button) findViewById(R.id.buttonNota);
-        btn4 = (Button) findViewById(R.id.buttonCicilan);
-        btn5 = (Button) findViewById(R.id.btn_tambahUser);
-        btnLogout = (Button) findViewById(R.id.button_logout);
+        username_text = findViewById(R.id.username_home);
+        barang_text = findViewById(R.id.textBarang_home);
+        nota_text = findViewById(R.id.textNota_home);
+        user_text = findViewById(R.id.textUser_home);
+        barang_logo = findViewById(R.id.logoBarang_home);
+        nota_logo = findViewById(R.id.logoNota_home);
+        user_logo = findViewById(R.id.logoUser_home);
+        logout_button = findViewById(R.id.logout_home);
 
 
-        btn1.setOnClickListener(new View.OnClickListener() {
+        if (!sessionAdmin) {
+            user_logo.setVisibility(View.INVISIBLE);
+            user_text.setVisibility(View.INVISIBLE);
+        }
+
+        barang_logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent secondIntent
-                        = new Intent(MenuActivity.this, HomeActivity.class);
-                startActivity(secondIntent);
+                Intent barangIntent = new Intent(HomeActivity.this, BarangActivity.class);
+                startActivity(barangIntent);
             }
         });
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+        barang_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent secondIntent
-                        = new Intent(MenuActivity.this, LihatBarangActivity.class);
-                startActivity(secondIntent);
+                Intent barangIntent = new Intent(HomeActivity.this, BarangActivity.class);
+                startActivity(barangIntent);
             }
         });
 
-        btn3.setOnClickListener(new View.OnClickListener() {
+        nota_logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent secondIntent
-                        = new Intent(MenuActivity.this, LihatNotaActivity.class);
-                startActivity(secondIntent);
+                Intent notaIntent = new Intent(HomeActivity.this, LihatNotaActivity.class);
+                startActivity(notaIntent);
             }
         });
 
-        btn5.setOnClickListener(new View.OnClickListener() {
+        nota_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent secondIntent
-                        = new Intent(MenuActivity.this, AddUserActivity.class);
-                startActivity(secondIntent);
+                Intent notaIntent = new Intent(HomeActivity.this, LihatNotaActivity.class);
+                startActivity(notaIntent);
+            }
+        });
+
+        user_logo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent userIntent = new Intent(HomeActivity.this, AddUserActivity.class);
+                startActivity(userIntent);
+            }
+        });
+
+        user_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent userIntent = new Intent(HomeActivity.this, AddUserActivity.class);
+                startActivity(userIntent);
             }
         });
 
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
+        logout_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 File dir = getFilesDir();
-                File file = new File(dir, "loggedin_user");
-                boolean deleted = file.delete();
-
-                if (deleted) finish(); else btnLogout.setText("ERROR GAN.");
+                File userfile = new File(dir, "loggedin_user");
+                boolean deleted = userfile.delete();
+                if (deleted) finish();
+                else logout_button.setText("ERROR GAN.");
             }
         });
 
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        finish();
-        return true;
     }
 
     //    prevent going back to login page

@@ -4,34 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.steventanjung.gowork.home"
     android:orientation="vertical"
-    android:weightSum="2">
+    android:weightSum="2"
+    tools:context="com.steventanjung.gowork.HomeActivity">
+
+    <TextView
+        android:id="@+id/welcome_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="Welcome, " />
+
+    <TextView
+        android:id="@+id/username_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:text="User"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_marginTop="70dp"
         android:orientation="horizontal"
         android:weightSum="2">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_weight="1"
-            android:gravity="bottom">
+            android:gravity="bottom"
+            android:orientation="vertical">
 
 
             <ImageView
-                android:id="@+id/imageView14"
+                android:id="@+id/logoBarang_home"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/ic_action_barang" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/textBarang_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -42,18 +59,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_weight="1"
-            android:gravity="bottom">
+            android:gravity="bottom"
+            android:orientation="vertical">
+
             <ImageView
-                android:id="@+id/imageView12"
+                android:id="@+id/logoNota_home"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/ic_action_name" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/textNota_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -63,19 +81,27 @@
 
     </LinearLayout>
 
-
     <ImageView
-        android:id="@+id/imageView13"
+        android:id="@+id/logoUser_home"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/ic_action_user"
-        android:layout_gravity="center"/>
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ic_action_user" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textUser_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Tambah User" />
+        android:text="User" />
+
+    <Button
+        android:id="@+id/logout_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:text="Logout"/>
 
 </LinearLayout>
