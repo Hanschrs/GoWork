@@ -28,7 +28,8 @@
         <activity android:name=".TambahNota" />
         <activity android:name=".LihatNotaActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".UserActivity"/>
+        <activity android:name=".UserActivity" />
+        <activity android:name=".UserAdapter"></activity>
     </application>
 
 </manifest>

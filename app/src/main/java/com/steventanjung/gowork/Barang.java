@@ -10,7 +10,7 @@ public class Barang
     private String nama;
     private String harga;
 
-    public Barang(String id, String nama, String harga) {
+    public Barang(String id, String nama, String harga, int what) {
         this.id = id;
         this.nama = nama;
         this.harga = harga;
