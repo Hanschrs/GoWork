@@ -12,14 +12,13 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         app:srcCompat="@drawable/ic_action_user" />
 
     <EditText
         android:id="@+id/username_addUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editText_nama"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
@@ -37,11 +36,20 @@
         android:hint="Password"
         android:inputType="textPassword" />
 
+    <CheckBox
+        android:id="@+id/checkbbox_isAdmin_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:text="is Admin"/>
+
     <Button
         android:id="@+id/button_tambah"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:layout_gravity="center"
         android:text="Tambah" />
 

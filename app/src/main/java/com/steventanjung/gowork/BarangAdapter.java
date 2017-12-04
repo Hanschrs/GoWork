@@ -30,16 +30,16 @@ public class BarangAdapter  extends ArrayAdapter<Barang> {
         Barang barang = getItem(position);
 
         if (convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.layout_barang, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.barang_adapter, parent, false);
         }
 
-        TextView txtId = (TextView) convertView.findViewById(R.id.text_id);
-        TextView txtNama = (TextView) convertView.findViewById(R.id.text_nama);
-        TextView txtHarga = (TextView) convertView.findViewById(R.id.text_harga);
+        TextView namaBarang = convertView.findViewById(R.id.view_namaBarang);
+        TextView hargaBarang = convertView.findViewById(R.id.view_hargaBarang);
+        TextView jumlahBarang = convertView.findViewById(R.id.view_hargaBarang);
 
-        txtId.setText(barang.getId());
-        txtNama.setText(barang.getNama());
-        txtHarga.setText(barang.getHarga());
+        namaBarang.setText(barang.getNama());
+        hargaBarang.setText(String.valueOf(barang.getHarga()));
+        jumlahBarang.setText(String.valueOf(barang.getJumlah()));
 
         return convertView;
     }}

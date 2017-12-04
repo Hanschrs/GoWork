@@ -107,7 +107,7 @@ public class HomeActivity extends AppCompatActivity {
         user_logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent userIntent = new Intent(HomeActivity.this, AddUserActivity.class);
+                Intent userIntent = new Intent(HomeActivity.this, UserActivity.class);
                 startActivity(userIntent);
             }
         });
@@ -115,7 +115,7 @@ public class HomeActivity extends AppCompatActivity {
         user_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent userIntent = new Intent(HomeActivity.this, AddUserActivity.class);
+                Intent userIntent = new Intent(HomeActivity.this, UserActivity.class);
                 startActivity(userIntent);
             }
         });

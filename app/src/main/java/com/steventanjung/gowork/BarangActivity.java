@@ -10,7 +10,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class BarangActivity extends AppCompatActivity {
-EditText nama,harga,jumlah;
+    EditText nama, harga, jumlah;
     Button add;
     ListView listview;
 
@@ -19,6 +19,7 @@ EditText nama,harga,jumlah;
     ArrayList<Barang> array = new ArrayList<>();
     BarangAdapter adapter;
     int index = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,27 +27,27 @@ EditText nama,harga,jumlah;
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        nama=(EditText) findViewById(R.id.namabarang_barang);
-        harga= (EditText) findViewById(R.id.harga_barang);
-        jumlah =  (EditText) findViewById(R.id.jumlah_barang);
-        add= (Button) findViewById(R.id.tambahBtn_barang);
+        nama = (EditText) findViewById(R.id.namabarang_barang);
+        harga = (EditText) findViewById(R.id.harga_barang);
+        jumlah = (EditText) findViewById(R.id.jumlah_barang);
+        add = (Button) findViewById(R.id.tambahBtn_barang);
 
-        add.setOnClickListener(new View.OnClickListener(){
+        add.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                if (id < 9){
+                if (id < 9) {
                     kode = "00" + String.valueOf(id);
                     id++;
-                }else if (id < 100){
+                } else if (id < 100) {
                     kode = "0" + String.valueOf(id);
                     id++;
-                }else {
+                } else {
                     kode = String.valueOf(id);
                     id++;
                 }
 
                 Barang barang = new Barang(
-                        (nama.getText().toString().substring(0,2).toUpperCase() + kode),
+                        (nama.getText().toString().substring(0, 2).toUpperCase() + kode),
                         nama.getText().toString(),
                         "Rp. " + harga.getText().toString(),
                         Integer.parseInt(jumlah.getText().toString())

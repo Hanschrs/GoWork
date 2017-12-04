@@ -29,7 +29,7 @@ public class UserAdapter extends ArrayAdapter<User> {
         TextView txtRole = convertView.findViewById(R.id.view_role);
 
         txtUsername.setText(user.getUsername());
-        if (user.getPangkat()==1) {
+        if ((user.getPangkat()).equals("1")) {
             txtRole.setText("ADMIN");
         } else {
             txtRole.setText("User");

@@ -6,9 +6,9 @@ package com.steventanjung.gowork;
 
 public class User {
     String username, password;
-    int pangkat;
+    String pangkat;
 
-    public User(String username, String password, int pangkat) {
+    public User(String username, String password, String pangkat) {
         this.username = username;
         this.password = password;
         this.pangkat = pangkat;
@@ -30,11 +30,11 @@ public class User {
         this.password = password;
     }
 
-    public int getPangkat() {
+    public String getPangkat() {
         return pangkat;
     }
 
-    public void setPangkat(int pangkat) {
+    public void setPangkat(String pangkat) {
         this.pangkat = pangkat;
     }
 }

@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/listBrg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.steventanjung.gowork.LihatBarangActivity">
 
-</ListView>
+    <TextView
+        android:id="@+id/title_barang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="Barang"
+        android:textSize="25sp" />
+
+    <ListView
+        android:id="@+id/listBarang_barang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/addBarang_barang"
+        android:layout_below="@+id/title_barang"></ListView>
+
+    <Button
+        android:id="@+id/addBarang_barang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Add Barang (+)" />
+
+</RelativeLayout>
