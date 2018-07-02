@@ -69,7 +69,7 @@ public class Login extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                result_view.setText(response);
+//                result_view.setText(response);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     int statusCode = jsonObject.getInt("code");

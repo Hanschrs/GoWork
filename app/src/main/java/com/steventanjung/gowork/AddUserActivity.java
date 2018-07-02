@@ -50,7 +50,7 @@ public class AddUserActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!(username.getText().toString().equals("")) && !(password.getText().toString().equals(""))) {
                     String usernameInput = username.getText().toString();
-                    String passwordInput = username.getText().toString();
+                    String passwordInput = password.getText().toString();
                     boolean isAdminInput;
                     if (isAdmin.isChecked()) {
                         isAdminInput = true;

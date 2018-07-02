@@ -42,6 +42,10 @@ public class UserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
         setContentView(R.layout.activity_user);
 
         addBtn = findViewById(R.id.addUser_user);
@@ -119,7 +123,8 @@ public class UserActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                showSpace.setText("ERROR");
+                Toast.makeText(UserActivity.this, "Database connection not established", Toast.LENGTH_SHORT).show();
+                Log.e("error", error.toString());
             }
         });
 
@@ -170,5 +175,12 @@ public class UserActivity extends AppCompatActivity {
                 fetchUser();
             }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()== android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 }

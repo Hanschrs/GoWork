@@ -27,9 +27,9 @@ public class HomeActivity extends AppCompatActivity {
     boolean sessionAdmin;
 
     //layout stuff
-    TextView username_text, barang_text, nota_text, user_text;
-    ImageView barang_logo, nota_logo, user_logo;
-    Button logout_button;
+    TextView username_text, barang_text, nota_text, user_text, admin_text;
+    ImageView barang_logo, nota_logo, user_logo, admin_logo;
+    Button logout_button, out_button;
 
 
     @Override
@@ -61,21 +61,31 @@ public class HomeActivity extends AppCompatActivity {
         barang_text = findViewById(R.id.textBarang_home);
         nota_text = findViewById(R.id.textNota_home);
         user_text = findViewById(R.id.textUser_home);
+        admin_text=findViewById(R.id.textUser_home1);
         barang_logo = findViewById(R.id.logoBarang_home);
         nota_logo = findViewById(R.id.logoNota_home);
         user_logo = findViewById(R.id.logoUser_home);
+        admin_logo = findViewById(R.id.logoUser_home1);
         logout_button = findViewById(R.id.logout_home);
+        out_button = findViewById(R.id.logout_home1);
+
 
 
         if (!sessionAdmin) {
-            user_logo.setVisibility(View.INVISIBLE);
-            user_text.setVisibility(View.INVISIBLE);
+            user_logo.setVisibility(View.GONE);
+            user_text.setVisibility(View.GONE);
+            logout_button.setVisibility(View.GONE);
+        }
+        if (sessionAdmin) {
+            admin_text.setVisibility(View.GONE);
+            admin_logo.setVisibility(View.GONE);
+            out_button.setVisibility(View.GONE);
         }
 
         barang_logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent barangIntent = new Intent(HomeActivity.this, BarangActivity.class);
+                Intent barangIntent = new Intent(HomeActivity.this, LihatBarangActivity.class);
                 startActivity(barangIntent);
             }
         });
@@ -83,7 +93,7 @@ public class HomeActivity extends AppCompatActivity {
         barang_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent barangIntent = new Intent(HomeActivity.this, BarangActivity.class);
+                Intent barangIntent = new Intent(HomeActivity.this, LihatBarangActivity.class);
                 startActivity(barangIntent);
             }
         });
@@ -122,6 +132,33 @@ public class HomeActivity extends AppCompatActivity {
 
 
         logout_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                File dir = getFilesDir();
+                File userfile = new File(dir, "loggedin_user");
+                boolean deleted = userfile.delete();
+                if (deleted) finish();
+                else logout_button.setText("ERROR GAN.");
+            }
+        });
+
+        admin_logo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent userIntent = new Intent(HomeActivity.this, TambahNota.class);
+                startActivity(userIntent);
+            }
+        });
+
+        admin_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent userIntent = new Intent(HomeActivity.this, TambahNota.class);
+                startActivity(userIntent);
+            }
+        });
+
+        out_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 File dir = getFilesDir();

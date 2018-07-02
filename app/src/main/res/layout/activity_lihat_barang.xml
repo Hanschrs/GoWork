@@ -18,12 +18,36 @@
         android:text="Barang"
         android:textSize="25sp" />
 
+    <LinearLayout
+        android:id="@id/linearSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/title_barang">
+
+        <EditText
+            android:id="@+id/search_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:hint="search"/>
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="search"/>
+    </LinearLayout>
+
+
     <ListView
         android:id="@+id/listBarang_barang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/addBarang_barang"
-        android:layout_below="@+id/title_barang"></ListView>
+        android:layout_below="@+id/linearSearch"></ListView>
 
     <Button
         android:id="@+id/addBarang_barang"

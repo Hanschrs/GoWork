@@ -8,6 +8,12 @@ public class Belanjaan {
     String nama_barang;
     int jumlah_barang, harga_satuan;
 
+    public Belanjaan() {
+        this.nama_barang = "";
+        this.jumlah_barang = 0;
+        this.harga_satuan = 0;
+    }
+
     public Belanjaan(String nama_barang, int jumlah_barang, int harga_satuan) {
         this.nama_barang = nama_barang;
         this.jumlah_barang = jumlah_barang;

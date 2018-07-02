@@ -13,23 +13,24 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Login"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddUserActivity" />
-        <activity android:name=".BarangActivity" />
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".MenuPegawaiActivity" />
-        <activity android:name=".LihatBarangActivity" />
-        <activity android:name=".TambahNota" />
-        <activity android:name=".LihatNotaActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".UserActivity" />
-        <activity android:name=".UserAdapter"></activity>
+        <activity android:windowSoftInputMode="adjustPan" android:name=".AddUserActivity" />
+        <activity android:windowSoftInputMode="adjustPan" android:name=".BarangActivity" />
+        <activity android:windowSoftInputMode="adjustPan" android:name=".EditBarangActivity" />
+        <activity android:windowSoftInputMode="adjustPan" android:name=".HomeActivity" />
+        <activity android:windowSoftInputMode="adjustPan" android:name=".LihatBarangActivity" />
+        <activity android:windowSoftInputMode="adjustPan" android:name=".LihatNotaActivity" />
+        <activity android:windowSoftInputMode="adjustPan" android:name=".TambahNota" />
+        <activity android:windowSoftInputMode="adjustPan" android:name=".UserActivity" />
+        <activity android:windowSoftInputMode="adjustPan" android:name=".DetailBarangActivity" />
+        <activity android:windowSoftInputMode="adjustPan" android:name=".DaftarBelanjaActivity"></activity>
     </application>
 
 </manifest>

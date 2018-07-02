@@ -1,54 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.steventanjung.gowork.TambahNota">
 
-    <EditText
-        android:id="@+id/namabarang_nota"
+    <LinearLayout
+        android:id="@+id/xx"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:ems="10"
-        android:hint="Nama Barang"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/jumlah_nota"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/namabarang_nota"
-        android:ems="10"
-        android:hint="Jumlah Barang"
-        android:inputType="number" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
-    <Button
-        android:id="@+id/tambahBtn_nota"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/jumlah_nota"
-        android:text="Tambah Barang" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Transaksi"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/doneButton_nota"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/tambahBtn_nota"
-        android:elevation="0dp"
-        android:text="Done" />
+        <Spinner
+            android:id="@+id/spinner_nota"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:hint="Nama Barang"
+            android:visibility="visible" />
 
-    <ListView
-        android:id="@+id/listView_nota"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/doneButton_nota"
-        android:layout_centerHorizontal="true" />
+        <EditText
+            android:id="@+id/jumlah_nota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/namabarang_nota"
+            android:ems="10"
+            android:hint="Jumlah Barang"
+            android:inputType="number" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/tambahBtn_nota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/jumlah_nota"
+            android:text="Tambah Barang" />
+
+        <Button
+            android:id="@+id/doneButton_nota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tambahBtn_nota"
+            android:elevation="0dp"
+            android:text="Done" />
+
+        <ListView
+            android:id="@+id/listView_nota"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/doneButton_nota"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
+
+
+</ScrollView>

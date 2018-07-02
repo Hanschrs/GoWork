@@ -8,24 +8,17 @@ import java.util.List;
  */
 
 public class Nota {
-    private String id, tanggal;
+    private String tanggal;
     private ArrayList<Belanjaan> belanjaan;
-    private int diskon, total_harga;
+    private int id, no_nota, diskon, total_harga;
 
-    public Nota(String id, String tanggal, ArrayList<Belanjaan> belanjaan, int diskon, int total_harga) {
-        this.id = id;
+    public Nota(String tanggal, ArrayList<Belanjaan> belanjaan, int id, int no_nota, int diskon, int total_harga) {
         this.tanggal = tanggal;
         this.belanjaan = belanjaan;
+        this.id = id;
+        this.no_nota = no_nota;
         this.diskon = diskon;
         this.total_harga = total_harga;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getTanggal() {
@@ -42,6 +35,22 @@ public class Nota {
 
     public void setBelanjaan(ArrayList<Belanjaan> belanjaan) {
         this.belanjaan = belanjaan;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getNo_nota() {
+        return no_nota;
+    }
+
+    public void setNo_nota(int no_nota) {
+        this.no_nota = no_nota;
     }
 
     public int getDiskon() {
